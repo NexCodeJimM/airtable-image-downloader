@@ -1,0 +1,20 @@
+{
+  "name": "airtable-downloader-server",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "airtable": "^0.12.2",
+    "archiver": "^5.3.0",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "heic-convert": "^2.1.0",
+    "node-fetch": "^2.6.1",
+    "sharp": "^0.33.4"
+  }
+}

@@ -22,7 +22,7 @@ This project is designed to download images from an Airtable base, filter them b
 1. Clone the repository:
 
 ```
-git clone https://github.com/yourusername/airtable-image-downloader.git
+git clone https://github.com/NexCodeJimM/airtable-image-downloader.git
 cd airtable-image-downloader
 ```
 
@@ -47,7 +47,7 @@ npm start
 5. Navigate to the `airtable-downloader` directory, install dependencies, and start the React app:
 
 ```
-cd client
+cd airtable-downloader
 npm install
 npm start
 ```

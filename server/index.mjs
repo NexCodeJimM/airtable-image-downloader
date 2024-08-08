@@ -26,7 +26,28 @@ const downloadImage = async (url, folder, filename) => {
     if (!res.ok) {
       throw new Error(`Failed to fetch ${url}: ${res.statusText}`);
     }
-    const sanitizedFilename = sanitizeFilename(filename);
+    const contentType = res.headers.get("content-type");
+    let extension = "";
+    if (contentType) {
+      switch (contentType) {
+        case "image/jpeg":
+        case "image/jpg":
+          extension = ".jpg";
+          break;
+        case "image/png":
+          extension = ".png";
+          break;
+        case "image/heic":
+        case "image/heif":
+          extension = ".heic";
+          break;
+        default:
+          extension = "";
+          break;
+      }
+    }
+
+    const sanitizedFilename = sanitizeFilename(filename + extension);
     const filePath = path.join(folder, sanitizedFilename);
 
     const buffer = await res.buffer();
@@ -91,7 +112,7 @@ app.post("/download", async (req, res) => {
 
     for (let record of filteredRecords) {
       const accountName = record.fields["Account Name"];
-      const imageUrls = record.fields["Download profile pictures"];
+      const imageUrls = record.fields["Download Photos Here ↙️"];
 
       if (!accountName || !imageUrls) {
         console.log("Missing Account Name or Image URLs for record:", record);
@@ -107,7 +128,7 @@ app.post("/download", async (req, res) => {
         for (let i = 0; i < imageUrls.length; i++) {
           const url = imageUrls[i];
           const downloadLink = getGDriveDownloadLink(url);
-          const imageName = `Photo_${i + 1}.heic`; // Naming as Photo_1, Photo_2, etc.
+          const imageName = `Photo_${i + 1}`; // Naming as Photo_1, Photo_2, etc.
           console.log(
             `Downloading image: ${downloadLink} to ${accountDir}/${imageName}`
           );

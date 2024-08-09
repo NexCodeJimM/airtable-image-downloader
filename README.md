@@ -44,10 +44,10 @@ AIRTABLE_ACCESS_TOKEN=your_airtable_api_key
 npm start
 ```
 
-5. Navigate to the `airtable-downloader` directory, install dependencies, and start the React app:
+5. Navigate to the `airtable-image-downloader` directory, install dependencies, and start the React app:
 
 ```
-cd airtable-downloader
+cd airtable-image-downloader
 npm install
 npm start
 ```
@@ -61,7 +61,7 @@ npm start
 ## File Structure
 
 - `index.mjs`: The main server file that handles image downloading and zipping.
-- `airtable-downloader/src/App.js`: The React frontend for inputting Airtable details.
+- `airtable-image-downloader/src/App.js`: The React frontend for inputting Airtable details.
 
 ## License
 
